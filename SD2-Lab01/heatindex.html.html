@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title> A Simple Web App - Temperature Evaluator Application </title>
+		<meta charset="utf-8"/>
+	</head>
+	<body> 
+		<h1> Temperature Evaluator </h1>
+		<p> This app allows the user to enter the current temperature in degrees Farhenheit. 
+		It then will display if it is BLAZIN, FREEZING, hot, cold, nice, or cool outside depending on the 
+		temperature the user inputs. </p>
+		<form onsubmit ="return false;">
+			<label>
+				Temp (F&deg;)
+				<input type = "number" id = "tempInput" value = "0" />
+			</label>
+			<button onclick ="evaluateTemperature();"> Evaluate </button>
+		<output id ="result"></output>
+		</form>
+		<script>
+			function evaluateTemperature() {
+				var inputElem = document.querySelector('#tempInput');
+				var outputElem = document.querySelector('#result');
+				var temp = inputElem.value;
+				var feel;
+				if (temp > 95)
+					feel = 'BLAZIN';
+				else if (temp > 85)
+					feel = 'hot';
+				else if (temp > 70)
+					feel = 'warm';
+				else if (temp > 55)
+					feel = 'nice';
+				else if (temp > 45)
+					feel = 'cool';
+				else if (temp > 30)
+					feel = 'cold';
+				else 
+					feel = 'FREEZING';
+				outputElem.innerHTML = 'Today, it is ' + feel + ' outside!'
+			}
+		</script>
+	</body>
+</html>
+
+		
